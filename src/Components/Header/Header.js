@@ -1,20 +1,22 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { AllPostContext } from "../../contextStore/AllPostContext";
 import { PostContext } from "../../contextStore/PostContext";
 import "./Header.css";
-import OlxLogo from "../../assets/OlxLogo";
-import SearchIcon from "../../assets/SearchIcon"
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+// import OlxLogo from "../../assets/OlxLogo";
+import B2CLogo from "../../assets/B2CLogo";
+import SearchIcon from "../../assets/SearchIcon";
 import Arrow from "../../assets/Arrow";
-import SellButton from "../../assets/SellButton";
-import SellButtonPlus from "../../assets/SellButtonPlus";
+// import SellButtonPlus from "../../assets/SellButtonPlus";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contextStore/AuthContext";
 import { Firebase } from "../../firebase/config";
 import Search from "../Search/Search";
+
 function Header() {
-  const{allPost}=useContext(AllPostContext)
-  const{setPostContent}=useContext(PostContext)
+  const { allPost } = useContext(AllPostContext);
+  const { setPostContent } = useContext(PostContext);
   const history = useHistory();
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
@@ -35,16 +37,15 @@ function Header() {
     setFilteredData([]);
     setWordEntered("");
   };
-  const handleSelectedSearch=(value)=>{
-       setPostContent(value)
-       history.push("/view")
-
-  }
-  const handleEmptyClick=()=>{
-     alert("No items found.., please search by product name");
-  }
+  const handleSelectedSearch = (value) => {
+    setPostContent(value);
+    history.push("/view");
+  };
+  const handleEmptyClick = () => {
+    alert("No items found.., please search by product name");
+  };
   const { user } = useContext(AuthContext);
-  
+
   const logoutHandler = () => {
     Firebase.auth()
       .signOut()
@@ -56,35 +57,46 @@ function Header() {
     <div className="headerParentDiv">
       <div className="headerChildDiv">
         <div className="brandName">
-          <OlxLogo></OlxLogo>
+          <B2CLogo></B2CLogo>
         </div>
         <div className="placeSearch">
-          <input type="text" 
-          placeholder="Search specific product..."
-          value={wordEntered}
-          onChange={handleFilter}
-        />{filteredData.length === 0 ? (
-          <div onClick={handleEmptyClick}> <SearchIcon /> </div>
-         ) : (
-           <div id="clearBtn"  onClick={clearInput} > <Arrow></Arrow></div>
-         )}
+          <input
+            type="text"
+            placeholder="Search specific product..."
+            value={wordEntered}
+            onChange={handleFilter}
+          />
+          {filteredData.length === 0 ? (
+            <div onClick={handleEmptyClick}>
+              {" "}
+              <SearchIcon />{" "}
+            </div>
+          ) : (
+            <div id="clearBtn" onClick={clearInput}>
+              {" "}
+              <Arrow></Arrow>
+            </div>
+          )}
           {filteredData.length !== 0 && (
-        <div className="dataResult-header">
-          {filteredData.slice(0, 15).map((value, key) => {
-            return (
-              <div key={key} className="dataItem-header" onClick={()=>handleSelectedSearch(value)}>
-                <p>{value.name} </p>
-              </div>
-            );
-          })}
-        </div>
-      )}
-         
+            <div className="dataResult-header">
+              {filteredData.slice(0, 15).map((value, key) => {
+                return (
+                  <div
+                    key={key}
+                    className="dataItem-header"
+                    onClick={() => handleSelectedSearch(value)}
+                  >
+                    <p>{value.name} </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
         <div className="productSearch">
           <Search />
         </div>
-        
+
         <div className="language">
           <span> ENGLISH </span>
           <Arrow></Arrow>
@@ -104,16 +116,24 @@ function Header() {
             Logout
           </span>
         )}
-        
+
         <Link to="/create">
           {" "}
-          <div className="sellMenu">
+          {/* <div className="sellMenu">
             <SellButton></SellButton>
             <div className="sellMenuContent">
               <SellButtonPlus></SellButtonPlus>
               <span>SELL</span>
             </div>
-          </div>
+          </div> */}
+          <button class="cta">
+            <span>Sell <AddShoppingCartIcon/></span>
+            <svg viewBox="0 0 13 10" height="10px" width="15px">
+              {/* <path d="M1,5 L11,5"></path> */}
+              {/* <polyline points="8 1 12 5 8 9"></polyline> */}
+              
+            </svg>
+          </button>
         </Link>
       </div>
     </div>

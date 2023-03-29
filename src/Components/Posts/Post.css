@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding:0px 15px;
 }
 .heading :first-child {
   font-size: 24px;
@@ -32,6 +33,7 @@
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
+  padding:10px 10px 20px 10px;
 }
 
 
@@ -66,4 +68,10 @@
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
+}
+
+.cardHeading{
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size:x-large;
 }

@@ -62,7 +62,7 @@ function Posts() {
       {posts && (
         <div className="moreView">
           <div className="heading">
-            <span>Quick Menu</span>
+            <span className="cardHeading">Quick Menu</span>
             <Link to="./viewmore">
               {" "}
               <span>View more</span>{" "}
@@ -76,7 +76,7 @@ function Posts() {
       )}
      <div className="recommendations">
         <div className="heading">
-          <span>Fresh recommendations</span>
+          <span className="cardHeading">Fresh recommendations</span>
         </div>
         <div className="fresh-recomendation-cards cards">{loading2 ? <BarLoading/> : freshRecomendationCards}</div> 
       </div> 

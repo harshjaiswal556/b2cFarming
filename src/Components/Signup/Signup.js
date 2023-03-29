@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../olx-logo.png";
 import "./Signup.css";
 import { Firebase } from "../../firebase/config";
 import { useHistory } from "react-router";
@@ -12,9 +11,9 @@ export default function Signup() {
   let [email, setEmail] = useState("");
   let [phone, setPhone] = useState("");
   let [password, setPassword] = useState("");
-  let [loading,setLoading]=useState(false)
+  let [loading, setLoading] = useState(false);
   const handleSubmit = (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
     Firebase.auth()
       .createUserWithEmailAndPassword(email, password)
@@ -31,57 +30,60 @@ export default function Signup() {
         history.push("/login");
       });
   };
-  return (<>
-    {loading && <SignUpLoading/> } <div>
-      <div className="signupParentDiv">
-        <img width="200px" height="200px" src={Logo} alt=""></img>
-        <form onSubmit={handleSubmit}>
-          <label>Full Name</label>
-          <br />
-          <input
-            className="input"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            name="name"
-          />
-          <br />
-          <label>Email</label>
-          <br />
-          <input
-            className="input"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            name="email"
-          />
-          <br />
-          <label>Phone</label>
-          <br />
-          <input
-            className="input"
-            type="number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            name="phone"
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <input
-            className="input"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            name="password"
-          />
-          <br />
-          <br />
-          <button>Signup</button>
-        </form>
-        <Link to="/login">Login</Link>
+  return (
+    <>
+      {loading && <SignUpLoading />}
+      <div className="signupContainer">
+        <div className="center">
+          <form onSubmit={handleSubmit}>
+            <h2>B2C Tech Farming</h2>
+            <div className="txt">
+              <input
+                type="text" required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                name="name"
+              />
+              <span></span>
+              <label>Full Name</label>
+            </div>
+            <div className="txt">
+              <input
+                type="email" required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+              />
+              <span></span>
+              <label>Email</label>
+            </div>
+            <div className="txt">
+              <input
+                type="number" required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                name="phone"
+              />
+              <span></span>
+              <label>Phone</label>
+            </div>
+            <div className="txt">
+              <input
+                type="password" required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+              />
+              <span></span>
+              <label>Password</label>
+            </div>
+            <input type="submit" value="Signup" />
+            <div className="signup-link">
+              Already a member? <Link to="/login">Login</Link>
+            </div>
+          </form>
+        </div>
       </div>
-    </div> 
     </>
   );
 }

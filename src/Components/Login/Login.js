@@ -1,61 +1,61 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Firebase } from "../../firebase/config";
-import Logo from "../../olx-logo.png";
 import RoundLoading from "../Loading/RoundLoading";
 import "./Login.css";
 
 function Login() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
-  let [loading,setLoading]=useState(false)
+  let [loading, setLoading] = useState(false)
   const history = useHistory()
   const handleSubmit = (e) => {
     setLoading(true)
     e.preventDefault();
-    Firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
+    Firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
       history.push("/")
-    }).catch((error)=>{
+    }).catch((error) => {
       alert(error.message)
     })
 
   };
   return (<>
-    {loading && <RoundLoading/> }
-    <div>
-      <div className="loginParentDiv">
-        <img width="200px" height="200px" src={Logo} alt=""></img>
+    {loading && <RoundLoading />}
+    <div className="loginContainer">
+      <div className="center">
         <form onSubmit={handleSubmit}>
-          <label>Email</label>
-          <br />
-          <input
-            className="input"
-            type="email"
-            placeholder="sijeesh@gmail.com"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <input
-            className="input"
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <br />
-          <button>Login</button>
+          <h2>B2C Tech Farming</h2>
+
+          <div className="txt">
+            <input type="email" required
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
+              <span></span>
+            <label>Email</label>
+          </div>
+
+          <div className="txt">
+            <input type="password" required
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+              <span></span>
+            <label>Password</label>
+          </div>
+
+          <input type="submit" value="Login"/>
+
+          <div  className="signup-link">
+              Not a member? <Link to="/signup">Signup</Link>
+          </div>
+          
         </form>
-        <Link to="/signup">Signup</Link>
-      </div> 
+        
+      </div>
     </div>
-    </>
+  </>
   );
 }
 

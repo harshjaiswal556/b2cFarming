@@ -7,34 +7,34 @@ function Footer() {
     <div className="footerParentDiv">
       <div className="content">
         <div>
-          <div className="heading">
+          <div className="footerHead">
             <p>POPULAR LOCATIONS</p>
           </div>
           <div className="list">
             <ul>
-              <li>kolkata</li>
-              <li>Mumbai</li>
-              <li>Chennai</li>
+              <li>Bhopal</li>
+              <li>Indore</li>
+              <li>Delhi</li>
               <li>Pune</li>
             </ul>
           </div>
         </div>
         <div>
-          <div className="heading">
+          <div className="footerHead">
             <p>ABOUT US</p>
           </div>
           <div className="list">
             <ul>
-              <li>About OLX Group</li>
+              <li>B2C Tech Group</li>
               <li>Careers</li>
               <li>Contact Us</li>
-              <li>OLXPeople</li>
+              <li>B2C Tech Farmers</li>
             </ul>
           </div>
         </div>
         <div>
-          <div className="heading">
-            <p>OLX</p>
+          <div className="footerHead">
+            <p>B2C Tech Farming</p>
           </div>
           <div className="list">
             <ul>
@@ -46,8 +46,8 @@ function Footer() {
         </div>
       </div>
       <div className="footer">
-        <p>Other Countries Pakistan - South Africa - Indonesia</p>
-        <p>Free Classifieds in India. © 2006-2021 OLX</p>
+        <p>Other Countries China - Nepal - Bhutan</p>
+        <p>© 2023 B2C Tech Farming Pvt Ltd. All rights reserved.</p>
       </div>
     </div>
   );
