@@ -3,6 +3,7 @@
  */
 
 /**
+ * 
  *  !   olx brand name  header-component
  
 
@@ -21,7 +22,6 @@
 </svg>;
 
 */
-
 
 /**
  *  !   search icon header-component
@@ -42,7 +42,6 @@
 
 */
 
-
 /**
  *  !   arrow-down  header-component
 
@@ -62,8 +61,7 @@ fillRule="evenodd"
 
  */
 
-
- /**
+/**
  *  !  sell-icon header-component
 
 <svg
@@ -94,8 +92,7 @@ className="_3V9PS"
  
 */
 
-
- /**
+/**
  *  !  plus-icon header-component
 
 <svg
@@ -114,7 +111,7 @@ fillRule="evenodd"
 
  */
 
- /**
+/**
   *  ! favorite-icon  post components
 
   <svg
@@ -132,6 +129,3 @@ fillRule="evenodd"
           </svg>
 
   */
-
-  
-

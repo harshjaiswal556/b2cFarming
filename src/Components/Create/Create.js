@@ -13,7 +13,7 @@ const Create = () => {
   let [price, setPrice] = useState("");
   let [description, setDescription] = useState("");
   let [image, setImage] = useState();
-  let [loading,setLoading]=useState(false);
+  let [loading, setLoading] = useState(false);
   const handleSubmit = () => {
     setLoading(true);
     let date = new Date().toDateString();
@@ -42,7 +42,7 @@ const Create = () => {
   return (
     <Fragment>
       <Header />
-    { loading && <GoLoading/> }
+      {loading && <GoLoading />}
       <div className="centerDiv">
         <label>Name</label>
         <br />
@@ -63,7 +63,9 @@ const Create = () => {
             setCategory(e.target.value);
           }}
           className="input"
-        > <option >Select Category</option>
+        >
+          {" "}
+          <option>Select Category</option>
           <option value="Cars">Cars</option>
           <option value="Cameras & Lenses">Cameras & Lenses</option>
           <option value="Computers & Laptops">Computers & Laptops</option>
@@ -116,7 +118,7 @@ const Create = () => {
         <button className="uploadBtn" onClick={handleSubmit}>
           upload and Submit
         </button>
-      </div> 
+      </div>
     </Fragment>
   );
 };
