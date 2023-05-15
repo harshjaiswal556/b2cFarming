@@ -43,81 +43,88 @@ const Create = () => {
     <Fragment>
       <Header />
       {loading && <GoLoading />}
-      <div className="centerDiv">
-        <label>Name</label>
-        <br />
-        <input
-          className="input"
-          type="text"
-          name="Name"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <br />
-        <label>Category:</label>
-        <select
-          name="Category"
-          onChange={(e) => {
-            setCategory(e.target.value);
-          }}
-          className="input"
-        >
-          {" "}
-          <option>Select Category</option>
-          <option value="Cars">Cars</option>
-          <option value="Cameras & Lenses">Cameras & Lenses</option>
-          <option value="Computers & Laptops">Computers & Laptops</option>
-          <option value="Mobile Phones">Mobile Phones</option>
-          <option value="Motorcycles">Motorcycles</option>
-          <option value="Tablets">Tablets</option>
-        </select>
-        <br />
-        <label>Price</label>
-        <br />
-        <input
-          className="input"
-          type="number"
-          name="Price"
-          value={price}
-          onChange={(e) => {
-            setPrice(e.target.value);
-          }}
-        />
-        <br />
-        <label>Description</label>
-        <br />
-        <input
-          className="input"
-          type="text"
-          name="Description"
-          value={description}
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
-        <br />
-
-        <br />
-        <img
-          alt="Posts"
-          width="200px"
-          height="200px"
-          src={image ? URL.createObjectURL(image) : ""}
-        ></img>
-
-        <br />
-        <input
-          type="file"
-          onChange={(e) => {
-            setImage(e.target.files[0]);
-          }}
-        />
-        <br />
-        <button className="uploadBtn" onClick={handleSubmit}>
-          upload and Submit
-        </button>
+      <div className="createContainer">
+        <div className="center">
+          <form onSubmit={handleSubmit}>
+            <h2>Enter Product Details</h2>
+            <div className="txt">
+              <input
+                type="text" required
+                name="Name"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
+              <span></span>
+              <label>Name</label>
+            </div>
+            <div className="txt">
+              <select
+                name="Category"
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+                className="input"
+              >
+                {" "}
+                <option>Select Category</option>
+                <option value="Rice">Rice</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Vegetable">Vegetable</option>
+                <option value="Oil Seeds">Oil Seeds</option>
+                <option value="Nuts & Dry Fruits">Nuts & Dry Fruits</option>
+              </select>
+              <span></span>
+              {/* <label>Category:</label> */}
+            </div>
+            <div className="txt">
+              <input
+                type="number" required
+                name="Price"
+                value={price}
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+              />
+              <span></span>
+              <label>Price</label>
+            </div>
+            <div className="txt">
+              <input
+                type="text" required
+                name="Description"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+              <span></span>
+              <label>Description</label>
+            </div>
+            <div className="txt">
+              <img
+                alt="Posts"
+                width="200px"
+                height="200px"
+                src={image ? URL.createObjectURL(image) : ""}
+              ></img>
+              <br />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setImage(e.target.files[0]);
+                }}
+              />
+            </div>
+            {/* <br />
+            <button className="uploadBtn" onClick={handleSubmit}>
+              upload and Submit
+            </button> */}
+            <input type="submit" value="Upload & Submit" />
+          </form>
+        </div>
       </div>
     </Fragment>
   );
